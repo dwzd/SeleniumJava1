@@ -1,0 +1,37 @@
+package com.da.methods;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class GetTextDemo {
+    WebDriver driver;
+    String baseUrl;
+    @Before
+    public void setUp(){
+        driver = new ChromeDriver();
+        baseUrl = "D:\\Java\\SeleniumJava\\src\\main\\resources\\PracticePage.html";
+        //driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
+    }
+    @Test
+    public void testElement() throws InterruptedException {
+        driver.get(baseUrl);
+        WebElement buttonElement = driver.findElement(By.id("opentab"));
+        String elementText = buttonElement.getText();
+        System.out.println("此元素上的文本为： " + elementText);
+    }
+    @After
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(3000);
+        driver.close();
+        driver.quit();
+    }
+}
