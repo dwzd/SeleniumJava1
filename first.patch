@@ -1,0 +1,378 @@
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1524145273779)
++++ .idea/compiler.xml	(date 1524145273779)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="SeleniumWebdriverJava" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/da/FirefoxDriverDemo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/da/FirefoxDriverDemo.java	(date 1524159607846)
++++ src/main/java/com/da/FirefoxDriverDemo.java	(date 1524159607846)
+@@ -0,0 +1,25 @@
++package com.da;
++
++import org.junit.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.firefox.FirefoxDriver;
++import static org.junit.Assert.*;
++
++public class FirefoxDriverDemo {
++    @Test
++    public void testSogou() throws InterruptedException {
++        WebDriver driver;
++        String baseUrl;
++        System.setProperty("webdriver.firefox.bin","C:\\Users\\darwin\\Downloads\\firefox-sdk\\bin\\firefox.exe");
++        System.setProperty("webdriver.gecko.driver", "D:\\AT\\geckodriver.exe");
++        driver = new FirefoxDriver();
++        baseUrl = "https://www.sogou.com";
++        driver.get(baseUrl);
++        driver.findElement(By.xpath("//input[@id='query']")).sendKeys("selenium java");
++        Thread.sleep(2000);
++        driver.findElement(By.id("stb")).click();
++        assertEquals("自动化测试工具",driver.findElement(By.xpath(".//*[@id='uigs__0']")).getText());
++
++    }
++}
+Index: src/main/java/com/da/IEDriver.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/da/IEDriver.java	(date 1524108637293)
++++ src/main/java/com/da/IEDriver.java	(date 1524108637293)
+@@ -0,0 +1,16 @@
++package com.da;
++
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.ie.InternetExplorerDriver;
++
++public class IEDriver {
++    public static void main(String[] args) {
++        // http://selenium-release.storage.googleapis.com/index.html
++        String baseUrl = "http://www.bing.com";
++        WebDriver driver;
++        System.setProperty("webdriver.ie.driver", "D:\\AT\\IEDriverServer.exe");
++        driver = new InternetExplorerDriver();
++        driver.get(baseUrl);
++
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1524105252097)
++++ .idea/misc.xml	(date 1524105252097)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/da/YahooTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/da/YahooTest.java	(date 1524151595415)
++++ src/main/java/com/da/YahooTest.java	(date 1524151595415)
+@@ -0,0 +1,21 @@
++package com.da;
++
++import org.junit.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class YahooTest {
++    @Test
++    public void linktext() throws InterruptedException {
++        WebDriver driver;
++        String baseUrl = "https://www.yahoo.com";
++        driver = new ChromeDriver();
++        driver.get(baseUrl);
++        driver.findElement(By.linkText("Mail")).click();
++        Thread.sleep(3000);
++        driver.navigate().back();
++        Thread.sleep(3000);
++        driver.findElement(By.partialLinkText("Sign")).click();
++    }
++}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1524160012053)
++++ .idea/vcs.xml	(date 1524160012053)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: src/main/java/com/da/FindByClassName.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/da/FindByClassName.java	(date 1524153372149)
++++ src/main/java/com/da/FindByClassName.java	(date 1524153372149)
+@@ -0,0 +1,18 @@
++package com.da;
++
++import org.junit.Test;
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++public class FindByClassName {
++    @Test
++    public void testClassName(){
++        WebDriver driver;
++        String baseUrl = "https://demostore.x-cart.com";
++        driver = new ChromeDriver();
++        driver.get(baseUrl);
++        driver.findElement(By.className("title")).click();
++
++    }
++}
+Index: SeleniumWebdriverJava.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- SeleniumWebdriverJava.iml	(date 1524105251984)
++++ SeleniumWebdriverJava.iml	(date 1524105251984)
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4" />
+\ No newline at end of file
+Index: debug.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- debug.log	(date 1524151470233)
++++ debug.log	(date 1524151470233)
+@@ -0,0 +1,3 @@
++[0419/112319.524:ERROR:process_info.cc(632)] range at 0x4e4d4e6800000000, size 0x1f4 fully unreadable
++[0419/112319.527:ERROR:process_info.cc(632)] range at 0x4e4d4eca00000000, size 0x1f4 fully unreadable
++[0419/112319.527:ERROR:process_info.cc(632)] range at 0x0, size 0x1f4 fully unreadable
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(date 1524146987088)
++++ pom.xml	(date 1524146987088)
+@@ -0,0 +1,99 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
++
++    <groupId>com.ddd</groupId>
++    <artifactId>1.0.2</artifactId>
++    <version>1.0-SNAPSHOT</version>
++    <properties>
++        <testng.version>6.11</testng.version>
++        <rest-assured.version>3.0.7</rest-assured.version>
++        <scribejava-apis.version>2.5.3</scribejava-apis.version>
++        <maven-surefire-plugin.version>2.20</maven-surefire-plugin.version>
++        <junit.version>4.12</junit.version>
++        <xml-apis.version>2.0.2</xml-apis.version>
++        <poi.version>3.11-beta3</poi.version>
++        <selenium-java.version>3.4.0</selenium-java.version>
++        <cucumber-testng.version>1.2.5</cucumber-testng.version>
++        <slf4j-api.version>1.6.6</slf4j-api.version>
++    </properties>
++    <packaging>jar</packaging>
++    <name>1.0.2</name>
++
++    <dependencies>
++    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
++        <dependency>
++            <groupId>org.seleniumhq.selenium</groupId>
++            <artifactId>selenium-java</artifactId>
++            <version>3.11.0</version>
++        </dependency>
++        <!-- https://mvnrepository.com/artifact/junit/junit -->
++
++        <dependency>
++            <groupId>junit</groupId>
++            <artifactId>junit</artifactId>
++            <version>${junit.version}</version>
++        </dependency>
++        <dependency>
++            <groupId>junit</groupId>
++            <artifactId>junit</artifactId>
++            <version>4.11</version>
++        </dependency>
++
++    </dependencies>
++
++    <build>
++        <pluginManagement>
++
++            <plugins>
++                <plugin>
++                    <groupId>org.apache.maven.plugins</groupId>
++                    <artifactId>maven-compiler-plugin</artifactId>
++                    <version>3.6.1</version>
++                    <configuration>
++                        <!-- or whatever version you use -->
++                        <source>1.8</source>
++                        <target>1.8</target>
++                    </configuration>
++                </plugin>
++                <plugin>
++                    <groupId>org.apache.maven.plugins</groupId>
++                    <artifactId>maven-surefire-plugin</artifactId>
++                    <version>${maven-surefire-plugin.version}</version>
++                    <configuration>
++                        <properties>
++                            <property>
++                                <name>junit</name>
++                                <value>false</value>
++                            </property>
++                        </properties>
++                        <threadCount>1</threadCount>
++                        <suiteXmlFiles>
++                            <!--<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
++                            <!--<suiteXmlFile>src/test/resources/demo-store-suite.xml</suiteXmlFile>-->
++                            <!--<suiteXmlFile>src/test/resources/anotation-suite.xml</suiteXmlFile>-->
++                            <suiteXmlFile>src/test/resources/coinmarketcapTestng.xml</suiteXmlFile>
++                        </suiteXmlFiles>
++                    </configuration>
++
++                    <dependencies>
++                        <!--Disable the junit if needed-->
++                        <!--<dependency>-->
++                        <!--<groupId>org.apache.maven.surefire</groupId>-->
++                        <!--<artifactId>surefire-junit47</artifactId>-->
++                        <!--<version>${maven-surefire-plugin.version}</version>-->
++                        <!--</dependency>-->
++                        <dependency>
++                            <groupId>org.apache.maven.surefire</groupId>
++                            <artifactId>surefire-testng</artifactId>
++                            <version>${maven-surefire-plugin.version}</version>
++                        </dependency>
++                    </dependencies>
++
++                </plugin>
++            </plugins>
++        </pluginManagement>
++    </build>
++</project>
+\ No newline at end of file
+Index: .idea/.name
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.name	(date 1524105193564)
++++ .idea/.name	(date 1524105193564)
+@@ -0,0 +1,1 @@
++SeleniumWebdriverJava
+\ No newline at end of file
+Index: src/main/resources/test1.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+--- src/main/resources/test1.properties	(date 1524105916023)
++++ src/main/resources/test1.properties	(date 1524105916023)
+@@ -0,0 +1,2 @@
++name=youtube
++course=java
+\ No newline at end of file
+Index: src/main/java/com/da/ReadingProperties.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/da/ReadingProperties.java	(date 1524106204346)
++++ src/main/java/com/da/ReadingProperties.java	(date 1524106204346)
+@@ -0,0 +1,17 @@
++package com.da;
++
++import java.io.FileInputStream;
++import java.io.FileNotFoundException;
++import java.io.IOException;
++import java.util.Properties;
++
++public class ReadingProperties {
++    public static void main(String[] args) throws IOException {
++        String path = "D:\\Java\\SeleniumJava\\src\\main\\resources\\test1.properties";
++        Properties properties = new Properties();
++        FileInputStream fileInputStream = new FileInputStream(path);
++        properties.load(fileInputStream);
++        System.out.println(properties.getProperty("name"));
++        System.out.println(properties.getProperty("course"));
++    }
++}
+Index: src/main/java/com/da/DesiredCapabilitiesDemo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/da/DesiredCapabilitiesDemo.java	(date 1524106668988)
++++ src/main/java/com/da/DesiredCapabilitiesDemo.java	(date 1524106668988)
+@@ -0,0 +1,22 @@
++package com.da;
++
++import org.openqa.selenium.Platform;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.edge.EdgeDriver;
++import org.openqa.selenium.firefox.FirefoxDriver;
++import org.openqa.selenium.remote.DesiredCapabilities;
++
++public class DesiredCapabilitiesDemo {
++    public static void main(String[] args) {
++        WebDriver driver;
++        String baseUrl = "https://www.bing.com";
++        DesiredCapabilities caps = DesiredCapabilities.edge();
++        caps.setBrowserName("edge");
++        caps.setPlatform(Platform.WIN10);
++        driver = new EdgeDriver();
++        //driver = new FirefoxDriver();
++        driver.manage().window().maximize();
++        driver.get(baseUrl);
++
++    }
++}
